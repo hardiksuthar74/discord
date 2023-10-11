@@ -40,6 +40,10 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
     onOpen("editServer", { server });
   };
 
+  const openMembersHandler = () => {
+    onOpen("members", { server });
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="focus:outline-none" asChild>
@@ -69,7 +73,10 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
           </DropdownMenuItem>
         )}
         {isAdmin && (
-          <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
+          <DropdownMenuItem
+            onClick={openMembersHandler}
+            className="px-3 py-2 text-sm cursor-pointer"
+          >
             Manage Members
             <Users className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
